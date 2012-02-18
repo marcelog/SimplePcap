@@ -2,10 +2,19 @@
 
 require_once __DIR__ . '/../build/SimplePcap.php';
 
-var_dump(SimplePcap::findAllDevs());
-$a = new SimplePcap($argv[1], $argv[2], $argv[3]);
+if ($argc != 4) {
+    echo "Use: $argv[0]: <interfaceName> <libpcapFilterExpression> <snapLen>\n";
+    exit(250);
+}
+$device = $argv[1];
+$filter = $argv[2];
+$snapLen=  $argv[3];
+
+$simplePcap = new SimplePcap($device, $filter, $snapLen);
+echo "Sniffing on: $device\n";
+
 while(true) {
-    $packet = $a->get();
+    $packet = $simplePcap->get();
     $data = $packet->getData();
     $total = $packet->getCapturedLen();
     $bytesPerColumn = 8;
