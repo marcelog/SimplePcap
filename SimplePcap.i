@@ -1,4 +1,3 @@
-/*%module(directors="1") SimplePcap*/
 %module(directors="1") SimplePcap
 %{
 #include <SimplePcap.h>
