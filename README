@@ -6,6 +6,9 @@ for PHP. So this will in essence, give you access to libpcap from PHP.
 Currently, it can list all devices and sniff packets without using pcap_loop(). It
 uses pcap_next().
 
+NOTE: It's very possible that you will need root or administrator privileges
+to sniff an interface. So, beware.
+
 USE EXAMPLE
 ===========
 

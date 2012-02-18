@@ -19,7 +19,7 @@ echo "Sniffing on: $device\n";
 
 /* Main sniffing loop */
 while(true) {
-    // Dump packet information
+    // "Decorate" the Packet received and dump it
     echo new DumpablePacket($simplePcap->get());
     echo "\n";
     usleep(100);
