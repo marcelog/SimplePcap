@@ -1,0 +1,35 @@
+This is the sourcecode for: http://marcelog.github.com/articles/swig_php_libpcap_module_c++.html
+
+It is a small C++ wrapper around libpcap, that comes with a SWIG interface file 
+for PHP. So this will in essence, give you access to libpcap from PHP.
+
+Currently, it can list all devices and sniff packets without using pcap_loop(). It
+uses pcap_next().
+
+USE EXAMPLE
+===========
+
+List all devices
+----------------
+foreach (SimplePcap::findAllDevs() as $name => $description) {
+    echo "$name => $description\n";
+}
+
+Getting packets
+---------------
+First, get an instance of the SimplePcap class:
+$simplePcap = new SimplePcap($interfaceName, $filter, $snapLen);
+
+$interfaceName can be something like "any", or "eth0".
+$filter is a libpcap filter, like "port 80".
+$snapLen is the maximum amount of bytes to capture per packet.
+
+Then, loop!
+while(true) {
+    $packet = $simplePcap->get(); // Returns a 'Packet' Object.
+    $data = $packet->getData(); // Returns a string
+    $total = $packet->getCapturedLen();
+}
+
+That's it. Happy sniffing!
+
