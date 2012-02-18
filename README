@@ -26,9 +26,17 @@ $snapLen is the maximum amount of bytes to capture per packet.
 
 Then, loop!
 while(true) {
+    // Get a packet
     $packet = $simplePcap->get(); // Returns a 'Packet' Object.
+
+    // Get the data
     $data = $packet->getData(); // Returns a string
-    $total = $packet->getCapturedLen();
+
+    // Get the packet information
+    $capturedLen = $packet->getCapturedLen();
+    $realLen = $packet->getRealLen();
+    $timeSeconds = $packet->getSecondsOffset();
+    $timeMicroSeconds = $packet->getMicroSecondsOffset();
 }
 
 That's it. Happy sniffing!
