@@ -26,6 +26,9 @@ namespace SimplePcapNs {
     {
         struct pcap_pkthdr header;
         u_char *data = (u_char *)pcap_next(handle, &header);
+        if (data == NULL) {
+            throw GenericPcapException("pcap_next() returned null");
+        }
         Packet *ret = new Packet(
             header.caplen, header.len, header.ts.tv_sec, header.ts.tv_usec, data
         );
