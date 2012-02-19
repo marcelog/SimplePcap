@@ -44,3 +44,19 @@ while(true) {
 
 That's it. Happy sniffing!
 
+Compiling
+=========
+Edit the GNUmakefile. You will need to specify the SWIG binary location and
+the php include directory (for the .h files). Then, just:
+$ gmake
+
+The "build" directory will be generated, with the SimplePcap.so file. Include it in your
+php.ini file like:
+extension=SimplePcap.so
+
+See the example directory, that ships a sample php.ini file that you can use with the -c flag for php:
+
+$ cd example
+$ php -c php.ini list.php
+
+
