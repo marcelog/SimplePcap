@@ -59,4 +59,14 @@ See the example directory, that ships a sample php.ini file that you can use wit
 $ cd example
 $ php -c php.ini list.php
 
+SAMPLE EXAMPLE RUN
+==================
+00080   2e 31 0d 0a 48 6f 73 74    3a 20 77 77 77 2e 67 6f    .1..Host   : www.go
+00096   6f 67 6c 65 2e 63 6f 6d    0d 0a 55 73 65 72 2d 41    ogle.com   ..User-A
+00112   67 65 6e 74 3a 20 4c 69    6e 6b 73 20 28 32 2e 32    gent: Li   nks (2.2
+00128   3b 20 4c 69 6e 75 78 20    32 2e 36 2e 32 39 2d 67    ; Linux    2.6.29-g
+00144   65 6e 74 6f 6f 2d 72 31    20 78 38 36 5f 36 34 3b    entoo-r1    x86_64;
+00160   20 31 32 36 78 34 34 29    0d 0a 41 63 63 65 70 74     126x44)   ..Accept
+00176   3a 20 2a 2f 2a 0d 0a 41    63 63 65 70 74 2d 45 6e    : */*..A   ccept-En
+00192   63 6f 64 69 6e 67 3a 20    67 7a 69 70 2c 20 64 65    coding:    gzip, de
 
