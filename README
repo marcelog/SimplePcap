@@ -21,11 +21,12 @@ foreach (SimplePcap::findAllDevs() as $name => $description) {
 Getting packets
 ---------------
 First, get an instance of the SimplePcap class:
-$simplePcap = new SimplePcap($interfaceName, $filter, $snapLen);
+$simplePcap = new SimplePcap($interfaceName, $filter, $snapLen, $timeout);
 
 $interfaceName can be something like "any", or "eth0".
 $filter is a libpcap filter, like "port 80".
 $snapLen is the maximum amount of bytes to capture per packet.
+$timeout specifies the read timeout in milliseconds.
 
 Then, loop!
 while(true) {
@@ -58,9 +59,12 @@ See the example directory, that ships a sample php.ini file that you can use wit
 
 $ cd example
 $ php -c php.ini list.php
+any => Pseudo-device that captures on all interfaces
+eth0 =>
+lo =>
 
-SAMPLE EXAMPLE RUN
-==================
+$ php -c php.ini sniff.php eth0 "port 80" 4096 0
+...
 00080   2e 31 0d 0a 48 6f 73 74    3a 20 77 77 77 2e 67 6f    .1..Host   : www.go
 00096   6f 67 6c 65 2e 63 6f 6d    0d 0a 55 73 65 72 2d 41    ogle.com   ..User-A
 00112   67 65 6e 74 3a 20 4c 69    6e 6b 73 20 28 32 2e 32    gent: Li   nks (2.2

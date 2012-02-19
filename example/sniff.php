@@ -3,8 +3,8 @@
 require_once __DIR__ . '/../build/SimplePcap.php';
 
 /* Validate cli arguments */
-if ($argc != 4) {
-    echo "Use: $argv[0]: <interfaceName> <libpcapFilterExpression> <snapLen>\n";
+if ($argc != 5) {
+    echo "Use: $argv[0]: <interfaceName> <libpcapFilterExpression> <snapLen> <timeout>\n";
     exit(250);
 }
 
@@ -12,9 +12,10 @@ if ($argc != 4) {
 $device = $argv[1];
 $filter = $argv[2];
 $snapLen =  $argv[3];
+$timeout = $argv[4];
 
 /* Get a SimplePcapObject */
-$simplePcap = new SimplePcap($device, $filter, $snapLen);
+$simplePcap = new SimplePcap($device, $filter, $snapLen, $timeout);
 echo "Sniffing on: $device\n";
 
 /* Main sniffing loop */

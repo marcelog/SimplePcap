@@ -59,13 +59,14 @@ namespace SimplePcapNs {
         return ret;
     }
 
-    SimplePcap::SimplePcap(const string& deviceName, const string& filterString, int snapLen)
-    {
+    SimplePcap::SimplePcap(
+        const string& deviceName, const string& filterString, int snapLen, int timeout
+    ) {
         char errbuf[PCAP_ERRBUF_SIZE];
         this->deviceName = string(deviceName);
         this->filterString = string(filterString);
         this->snapLen = snapLen;
-        handle = pcap_open_live(deviceName.c_str(), snapLen, 1, 1, errbuf);
+        handle = pcap_open_live(deviceName.c_str(), snapLen, 1, timeout, errbuf);
         if (handle == NULL) {
             throw CouldNotOpenDeviceException(deviceName, string(errbuf));
         }

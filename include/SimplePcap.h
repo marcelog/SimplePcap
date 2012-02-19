@@ -24,7 +24,10 @@ namespace SimplePcapNs {
             void close();
             static deviceList *findAllDevs();
             Packet *get();
-            explicit SimplePcap(const string& deviceName, const string& filterString, int snapLen);
+            explicit SimplePcap(
+                const string& deviceName, const string& filterString,
+                int snapLen, int timeout
+            );
             ~SimplePcap();
     };
 }
