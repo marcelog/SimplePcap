@@ -10,14 +10,15 @@ using namespace SimplePcapNs;
 %include "typemaps.i"
 %include "exception.i"
 
-%typemap(out) SimplePcapNs::deviceList
+%typemap(out) SimplePcapNs::deviceList*
 {
-    deviceList::iterator iter = $1.begin();
-    deviceList::const_iterator end = $1.end();
+    deviceList::iterator iter = $1->begin();
+    deviceList::const_iterator end = $1->end();
     array_init(return_value);
     for (; iter != end; ++iter) {
         add_assoc_string(return_value, iter->first.c_str(), (char *)iter->second.c_str(), 1);
     }
+    delete $1;
 }
 
 %newobject SimplePcap::get;

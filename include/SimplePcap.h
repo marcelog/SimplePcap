@@ -22,7 +22,7 @@ namespace SimplePcapNs {
             bpf_u_int32 net;
         public:
             void close();
-            static deviceList findAllDevs();
+            static deviceList *findAllDevs();
             Packet *get();
             explicit SimplePcap(const string& deviceName, const string& filterString, int snapLen);
             ~SimplePcap();

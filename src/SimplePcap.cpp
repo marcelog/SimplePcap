@@ -32,10 +32,10 @@ namespace SimplePcapNs {
         return ret;
     }
 
-    deviceList
+    deviceList *
     SimplePcap::findAllDevs()
     {
-        deviceList ret;
+        deviceList *ret = new deviceList;
         pcap_if_t *alldevs;
         pcap_if_t *d;
         char errbuf[PCAP_ERRBUF_SIZE];
@@ -47,9 +47,9 @@ namespace SimplePcapNs {
         for (d = alldevs; d != NULL; d = d->next)
         {
             if (d->description) {
-                ret[d->name] = d->description;
+                (*ret)[d->name] = d->description;
             } else {
-                ret[d->name] = "";
+                (*ret)[d->name] = "";
             }
         }
         pcap_freealldevs(alldevs);
