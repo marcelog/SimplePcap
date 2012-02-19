@@ -1,4 +1,5 @@
 #include <Packet.h>
+#include <stdio.h>
 
 using namespace std;
 namespace SimplePcapNs {

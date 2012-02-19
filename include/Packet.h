@@ -2,6 +2,7 @@
 #define __SimplePcap_Packet_h__
 
 #include <string>
+#include <sys/types.h>
 
 using namespace std;
 namespace SimplePcapNs {
