@@ -18,7 +18,7 @@ CPPFLAGS = \
 	-I${PHPINC}/TSRM \
 	-I${PHPINC}
 LD = ld
-LIBS = -lpcap
+LIBS = -lpcap -lstdc++
 
 all: prepare ${OUTPUTDIR}/${NAME}.so
 
