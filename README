@@ -4,7 +4,7 @@ It is a small C++ wrapper around libpcap, that comes with a SWIG interface file
 for PHP. So this will in essence, give you access to libpcap from PHP.
 
 Currently, it can list all devices and sniff packets without using pcap_loop(). It
-uses pcap_next().
+uses pcap_next(). You can also inject packets, the wrapper will call pcap_inject().
 
 NOTE: It's very possible that you will need root or administrator privileges
 to sniff an interface. So, beware.
