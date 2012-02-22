@@ -11,7 +11,7 @@ using namespace std;
 namespace SimplePcapNs {
     typedef map<string, string> deviceList;
 
-   class SimplePcap
+    class SimplePcap
     {
         private:
             pcap_t *handle;
@@ -23,6 +23,7 @@ namespace SimplePcapNs {
         public:
             void close();
             static deviceList *findAllDevs();
+            int send(string buf);
             Packet *get();
             explicit SimplePcap(
                 const string& deviceName, const string& filterString,

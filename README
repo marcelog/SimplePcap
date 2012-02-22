@@ -45,6 +45,18 @@ while(true) {
 
 That's it. Happy sniffing!
 
+Injecting Packets
+-----------------
+$totalBytesSent = $simplePcap->send($rawPacketData);
+
+Hint: If you want to try it quickly, you can sniff packets and save them to a file. Do
+a file_get_contents() on it when calling send(), to reinject it :) If not, you will have
+to forge your packet.
+
+Note: Since the SimplePcap constructor calls pcap_open_live(), even if you're opening the
+interface just to inject packets (.. wont comment anything on that.. ) you will still need
+to pass all the arguments.
+
 Compiling
 =========
 Edit the GNUmakefile. You will need to specify the SWIG binary location and

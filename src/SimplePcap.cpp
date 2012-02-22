@@ -21,6 +21,12 @@ namespace SimplePcapNs {
         }
     }
 
+    int
+    SimplePcap::send(string buf)
+    {
+        return pcap_inject(handle, buf.data(), buf.size());
+    }
+
     Packet *
     SimplePcap::get()
     {
