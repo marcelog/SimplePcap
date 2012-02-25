@@ -25,7 +25,7 @@ namespace SimplePcapNs {
             static deviceList *findAllDevs();
             int send(string buf);
             Packet *get();
-            explicit SimplePcap(
+            SimplePcap(
                 const string& deviceName, const string& filterString,
                 int snapLen, int timeout
             );
