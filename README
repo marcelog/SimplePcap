@@ -9,6 +9,11 @@ uses pcap_next(). You can also inject packets, the wrapper will call pcap_inject
 NOTE: It's very possible that you will need root or administrator privileges
 to sniff an interface. So, beware.
 
+CI
+==
+You can get a build for linux x86_64 at:
+http://ci.marcelog.name:8080/view/C%20C++/?
+
 USE EXAMPLE
 ===========
 
