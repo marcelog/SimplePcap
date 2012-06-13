@@ -76,7 +76,7 @@ namespace SimplePcapNs {
         if (handle == NULL) {
             throw CouldNotOpenDeviceException(deviceName, string(errbuf));
         }
-        if (pcap_compile(handle, &fp, filterString.c_str(), 0, net) == -1) {
+        if (pcap_compile(handle, &fp, (char *)filterString.c_str(), 0, net) == -1) {
             string errorString = string(pcap_geterr(handle));
             pcap_close(handle);
             throw FilterException(filterString, errorString);
