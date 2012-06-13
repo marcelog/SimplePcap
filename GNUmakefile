@@ -19,6 +19,7 @@ CPPFLAGS = \
 	-I${PHPINC}
 LD = ld
 LIBS = -lpcap -lstdc++
+LDFLAGS += 
 
 all: prepare ${OUTPUTDIR}/${NAME}.so
 
@@ -37,7 +38,7 @@ ${OUTPUTDIR}/${NAME}.so: \
 	${OUTPUTDIR}/Packet.o \
 	${OUTPUTDIR}/Exception.o \
 	${OUTPUTDIR}/SimplePcap_swig.o
-	ld -shared ${OUTPUTDIR}/*.o -o ${OUTPUTDIR}/${NAME}.so ${LIBS}
+	ld -shared ${LDFLAGS} ${OUTPUTDIR}/*.o -o ${OUTPUTDIR}/${NAME}.so ${LIBS}
 
 clean:
 	rm -rf ${OUTPUTDIR}
